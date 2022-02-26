@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose';
 
-let ArticleSchema = new mongoose.Schema(
+let ArticleSchema = new Schema(
     {
         text: String,
         title: String,
@@ -8,13 +8,13 @@ let ArticleSchema = new mongoose.Schema(
         feature_img: String,
         claps: Number,
         autor: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         },
         comments: [
             {
                 author: {
-                    type: mongoose.Schema.Types.ObjectId,
+                    type: Schema.Types.ObjectId,
                     ref: 'User'
                 },
                 text: String
@@ -40,4 +40,4 @@ ArticleSchema.methods.getUserArticle = function (_id) {
         return article
     })
 }
-modeles.exports = mongoose.model('Article', ArticleSchema)
+modeles.exports = model('Article', ArticleSchema)

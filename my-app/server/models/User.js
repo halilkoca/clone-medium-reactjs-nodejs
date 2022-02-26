@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose';
 
-let UserSchema = new mongoose.Schema(
+let UserSchema = new Schema(
     {
         name: String,
         email: String,
@@ -9,11 +9,11 @@ let UserSchema = new mongoose.Schema(
         token: String,
         provider_pic: String,
         followers: [{
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }],
         following: [{
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }],
     }
@@ -29,4 +29,4 @@ UserSchema.methods.addFollower = function (fs) {
     this.followers.push(fs)
     return this.save()
 }
-module.exports = mongoose.model('User', UserSchema)
+export default model('User', UserSchema)
