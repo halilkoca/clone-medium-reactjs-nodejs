@@ -1,7 +1,7 @@
-import user from './user'
-import article from './article'
+const user = require('./user')
+const article = require('./article')
 
-export default (router) => {
+module.exports = (router) => {
     user(router)
     article(router)
 }

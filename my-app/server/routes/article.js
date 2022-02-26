@@ -1,26 +1,26 @@
-import { getAll, addArticle, clapArticle, commentArticle, getArticle } from './../controllers/article.ctrl'
-import multipart from 'connect-multiparty'
+const articlecontroller = require('./../controllers/article.ctrl')
+const multipart = require('connect-multiparty')
 const multipartWare = multipart()
 
-export default (router) => {
+module.exports = (router) => {
 
     router
         .route('/articles')
-        .get(getAll)
+        .get(articlecontroller.getAll)
 
     router
         .route('/article')
-        .post(multipartWare, addArticle)
+        .post(multipartWare, articlecontroller.addArticle)
 
     router
         .route('/article/clap')
-        .post(clapArticle)
+        .post(articlecontroller.clapArticle)
 
     router
         .route('/article/comment')
-        .post(commentArticle)
+        .post(articlecontroller.commentArticle)
 
     router
         .route('/article/:id')
-        .get(getArticle)
+        .get(articlecontroller.getArticle)
 }

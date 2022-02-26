@@ -1,20 +1,20 @@
-import { getUser, getUserProfile, addUser, followUser } from './../controllers/user.ctrl'
+const usercontroller = require('./../controllers/user.ctrl')
 
-export default (router) => {
+module.exports = (router) => {
 
     router
         .route('/user/:id')
-        .get(getUser)
+        .get(usercontroller.getUser)
 
     router
         .route('/user/profile/:id')
-        .get(getUserProfile)
+        .get(usercontroller.getUserProfile)
 
     router
         .route('/user')
-        .post(addUser)
+        .post(usercontroller.addUser)
 
     router
         .route('/user/follow')
-        .post(followUser)
+        .post(usercontroller.followUser)
 }
