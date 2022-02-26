@@ -1,3 +1,6 @@
+Bad programmers think about their code, good programmers think about their data structure → > Linus Torvalds
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
