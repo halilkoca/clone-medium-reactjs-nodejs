@@ -16,19 +16,14 @@ class Feed extends Component {
         this.props.loadArticles();
     }
 
-    static getDerivedStateFromProps(props, state) {
-
-        // Return null to indicate no change to state.
-        return null;
-    }
-
     render() {
         const articles = this.props.articles.reverse().map((article) =>
-            <div className="post-panel">
+            
+            <div key={article._id} className="post-panel">
                 <div className="post-metadata">
                     <img alt="" className="avatar-image" src={article.author.provider_pic} height="40" width="40" />
                     <div className="post-info">
-                        <div data-react-className="PopoverLink">
+                        <div data-react-classname="PopoverLink">
                             <span className="popover-link" data-reactroot="">
                                 <a href={`/profile/${article.author._id}`}>{article.author.name}</a>
                             </span>
