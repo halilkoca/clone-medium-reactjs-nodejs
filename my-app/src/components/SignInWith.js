@@ -6,6 +6,7 @@ import {
     toggleClose,
     toggleOpen
 } from './../redux/actions/actions'
+
 class SignInWith extends Component {
     render() {
         const responseGoogle = (res) => {

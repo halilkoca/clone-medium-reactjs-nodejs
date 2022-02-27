@@ -1,6 +1,5 @@
-
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Feed from './components/Feed'
 import Profile from './components/Profile'
@@ -15,13 +14,13 @@ class App extends Component {
       <div>
         {!pathname.includes('editor') ? <Header /> : ''}
         <SignInWith />
-        <Switch>
-          <Route exact path="/" component={Feed} />
-          <Route path="/profile/:id" component={Profile} />
-          <Route path="/articleview/:id" component={ArticleView} />
-          <Route path="/editor" component={requireAuthentication(Editor)} />
-          <Route path="**" component={Feed} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Feed />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/articleview/:id" element={<ArticleView />} />
+          <Route path="/editor" element={requireAuthentication(<Editor />)} />
+          <Route path="**" element={<Feed />} />
+        </Routes>
       </div>
     );
   }

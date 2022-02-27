@@ -37,13 +37,11 @@ export function getArticle(article_id) {
     }
 }
 
-// article_id, author_id, comment
 export function comment() {
     return (dispatch) => {
     }
 }
 
-//req.body.article_id
 export function clap(article_id) {
     return (dispatch) => {
         axios.post(`${url}article/clap`, { article_id }).then((res) => {
@@ -52,7 +50,6 @@ export function clap(article_id) {
     }
 }
 
-//id, user_id
 export function follow(id, user_id) {
     return (dispatch) => {
         axios.post(`${url}user/follow`, { id, user_id }).then((res) => {
