@@ -43,7 +43,9 @@ class ArticleView extends Component {
                     <div className="row animated fadeInUp" data-animation="fadeInUp-fadeOutDown">
                         <div id="main-post" className="col-xs-10 col-md-8 col-md-offset-2 col-xs-offset-1 main-content">
                             <div className="pull-right">
-                                {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
+                                {this.props.user
+                                    ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} />
+                                    : ''}
                             </div>
                             <div className="post-metadata">
                                 <img alt={author_name} className="avatar-image" src={author_img} height="40" width="40" />
@@ -184,4 +186,5 @@ ArticleView.propTypes = {
     params: PropTypes.object.isRequired
 }
 
-export default connect(mapStateToProps, { getArticle, clap, follow })(ArticleView);
+export default connect(mapStateToProps,
+    { getArticle, clap, follow })(ArticleView);
