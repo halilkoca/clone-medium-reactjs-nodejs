@@ -7,7 +7,7 @@ const cloudinary = require('cloudinary')
 module.exports = {
     addArticle: (req, res, next) => {
         let { text, title, claps, description } = req.body
-        if (req.files.image) {
+        if (req.files && req.files.image) {
             cloudinary.uploader.upload(req.files.image.path, (result) => {
                 let obj = { text, title, claps, description, feature_img: result.url != null ? result.url : '' }
                 saveArticle(obj)
