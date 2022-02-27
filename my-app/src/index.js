@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/medium.css';
 import { Provider } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import App from './App';
 import configureStore, { history } from "./redux/store";
@@ -22,9 +22,9 @@ if (localStorage.Auth) {
 ReactDOM.render((
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ConnectedRouter>
   </Provider>
 ), document.getElementById('root'));
